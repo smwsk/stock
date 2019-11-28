@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="CommonMapper">
+
+    <!--插入公共消息-->
+    <insert id="insertCommonInfo" parameterType="pd">
+        INSERT INTO ${tableName}
+        (${showFields}) VALUES
+        (
+        <if test="operateFiledList!=null">
+            <foreach collection="operateFiledList" item="item" index="index" separator=",">
+                #{${item}}
+            </foreach>
+        </if>
+        )
+    </insert>
+
+    <!--获取公共消息列表-->
+    <select id="listCommonInfo" parameterType="pd" resultType="pd">
+      SELECT ${showFields} FROM ${tableName}
+      <where> 1=1
+          <if test="operateFiledList!=null">
+              <foreach collection="operateFiledList" item="item" index="index">
+                  AND ${item} = #{${item}}
+              </foreach>
+          </if>
+      </where>
+    </select>
+
+    <!--获取公共消息-->
+    <select id="getCommonInfo" parameterType="pd" resultType="pd">
+        SELECT ${showFields} FROM ${tableName}
+        <where> 1=1
+            <if test="operateFiledList!=null">
+                <foreach collection="operateFiledList" item="item" index="index">
+                  AND ${item} = #{${item}}
+                </foreach>
+            </if>
+        </where>
+        limit 1
+    </select>
+
+    <!--修改公共消息-->
+    <update id="updateCommonInfo" parameterType="pd">
+      update ${tableName}
+        <if test="operateFiledList!=null">
+            <trim prefix="set" suffixOverrides=",">
+                <foreach collection="operateFiledList" item="item" index="index">
+                    <bind name="" value=""></bind>
+                    ${item} = #{${item}},
+                </foreach>
+            </trim>
+        </if>
+      <where> 1=1
+          <foreach collection="showFiledList" item="item" index="index">
+              AND ${item} = #{${item}}
+          </foreach>
+      </where>
+    </update>
+    
+    <!--删除公共消息-->
+    <delete id="deleteCommonInfo" parameterType="pd">
+        DELETE FROM ${tableName}
+        <where> 1=1
+            <if test="operateFiledList!=null">
+                <foreach collection="operateFiledList" item="item" index="index">
+                    AND ${item} = #{${item}}
+                </foreach>
+            </if>
+        </where>
+    </delete>
+
+</mapper>
