@@ -3,8 +3,18 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="UserMapper">
 
-    <select id="listUserInfo" parameterType="pd" resultType="pd">
-      select  * from user
+    <select id="listUserInfo" parameterType="pd" resultType="com.smu.stock.entity.User">
+      select * from user
+    </select>
+
+    <select id="getUserInfo" parameterType="pd" resultType="com.smu.stock.entity.User">
+      select * from user
+      <where> 1 = 1
+          <if test="userName!=null and userName!=''">
+              AND username = #{userName}
+          </if>
+      </where>
+      limit 1
     </select>
 
 </mapper>

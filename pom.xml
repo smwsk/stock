@@ -42,7 +42,7 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-
+        <!--lombok依赖-->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
@@ -54,6 +54,13 @@
 			<artifactId>mybatis-spring-boot-starter</artifactId>
 			<version>1.3.2</version>
 		</dependency>
+		<!--mybatis分页-->
+		<dependency>
+			<groupId>com.github.pagehelper</groupId>
+			<artifactId>pagehelper-spring-boot-starter</artifactId>
+			<version>1.2.13</version>
+		</dependency>
+
 		<!--mysql数据库-->
 		<dependency>
 			<groupId>mysql</groupId>
@@ -96,10 +103,26 @@
 			<artifactId>spring-boot-starter-aop</artifactId>
 			<version>2.1.3.RELEASE</version>
 		</dependency>
-
+        <!--gson数据解析-->
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
+		</dependency>
+		<!--security安全框架-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<!--JSON Web Token依赖-->
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>0.9.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-context</artifactId>
+			<version>2.1.1.RELEASE</version>
 		</dependency>
 	</dependencies>
 

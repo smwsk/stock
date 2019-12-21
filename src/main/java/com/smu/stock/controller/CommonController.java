@@ -1,5 +1,6 @@
 package com.smu.stock.controller;
 
+import com.smu.stock.entity.PageInfo;
 import com.smu.stock.exception.BaseException;
 import com.smu.stock.service.ICommonService;
 import com.smu.stock.utils.PageData;
@@ -20,6 +21,17 @@ public class CommonController extends BaseController{
 
 	@Autowired
 	ICommonService commonService;
+
+	@ApiImplicitParam(paramType = "body", dataType = "String")
+	@ApiOperation(value = "通用查询列表接口",httpMethod = "POST")
+	@RequestMapping(value = "{pathInfo}/listPageInfo")
+	public PageInfo listCommonPageInfo(@PathVariable(name = "pathInfo") String pathInfo, HttpServletRequest request){
+		PageData pageData = this.getPageData();
+		pageData.put("pathInfo",pathInfo);
+		List<PageData> pageDataList = commonService.pageCommonInfo(pageData);
+		PageInfo<PageData> pageInfo = new PageInfo<>(pageDataList);
+		return pageInfo;
+	}
 
 	@ApiImplicitParam(paramType = "body", dataType = "String")
 	@ApiOperation(value = "通用查询列表接口",httpMethod = "POST")

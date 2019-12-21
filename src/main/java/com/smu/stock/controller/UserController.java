@@ -1,5 +1,6 @@
 package com.smu.stock.controller;
 
+import com.smu.stock.entity.User;
 import com.smu.stock.service.IUserService;
 import com.smu.stock.utils.PageData;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ public class UserController extends BaseController {
 	@RequestMapping(value = "/listUserInfo")
 	public Object listUserInfo(HttpServletRequest request) throws Exception {
 		PageData pageData = this.getPageData();
-		List<PageData> listUserInfo = userService.getListUserInfo(pageData);
+		List<User> listUserInfo = userService.listUserInfo(pageData);
 		return listUserInfo;
 	}
 }

@@ -49,3 +49,14 @@
 
 ### 其他接口信息
 >其他接口信息参考[接口文档](https://apizza.net/pro/#/project/88237b8b4a8ae7dc3339f2104fac9689/browse)
+
+### 后端技术
+
+| 技术                 | 说明                | 官网                                                         |
+| -------------------- | ------------------- | ------------------------------------------------------------ |
+| Spring Boot          | 容器+MVC框架        | [https://spring.io/projects/spring-boot](https://spring.io/projects/spring-boot) |
+| MyBatis              | ORM框架             | [http://www.mybatis.org/mybatis-3/zh/index.html](http://www.mybatis.org/mybatis-3/zh/index.html) |
+| PageHelper           | MyBatis物理分页插件 | [http://git.oschina.net/free/Mybatis_PageHelper](http://git.oschina.net/free/Mybatis_PageHelper) |
+| Swagger-UI           | 文档生产工具        | [https://github.com/swagger-api/swagger-ui](https://github.com/swagger-api/swagger-ui) |
+| Redis                | 分布式缓存          | [https://redis.io/](https://redis.io/)                       |
+| Druid                | 数据库连接池        | [https://github.com/alibaba/druid](https://github.com/alibaba/druid) |

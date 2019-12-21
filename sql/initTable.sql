@@ -33,4 +33,42 @@ CREATE TABLE `dictionary` (
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 
+-- 用户表
+CREATE TABLE `sys_user` (
+  `tid` bigint(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  PRIMARY KEY (`tid`)
+);
+
+-- 角色表
+CREATE TABLE `sys_role` (
+  `tid` bigint(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  PRIMARY KEY (`tid`)
+);
+
+-- 用户角色表
+CREATE TABLE `sys_user_role` (
+  `tid` bigint(11) NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(11) NOT NULL,
+  `sys_role_id` bigint(11) NOT NULL
+);
+
+-- 菜单表
+create table `sys_menu` {
+  `tid` bigint(11) NOT NULL AUTO_INCREMENT,
+  `parent_id` bigint(11) DEFAULT NULL COMMENT '父菜单ID，一级菜单为0',
+  `name` varchar (64) DEFAULT NULL COMMENT '菜单名称',
+  `url` varchar(200) DEFAULT NULL COMMENT '菜单URL',
+  `type` int(11) DEFAULT NULL COMMENT '类型   0：目录   1：菜单   2：按钮',
+  `order_num` int(11) DEFAULT NULL COMMENT '排序'
+}
+
+-- 角色菜单表
+create table `sys_role_menu` {
+  `tid` bigint(11) NOT NULL AUTO_INCREMENT,
+  `menu_id` bigint(11) NOT NULL,
+  `sys_role_id` bigint(11) NOT NULL
+}
 

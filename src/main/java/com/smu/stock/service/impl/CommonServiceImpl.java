@@ -1,5 +1,7 @@
 package com.smu.stock.service.impl;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import com.smu.stock.dao.DaoSupport;
 import com.smu.stock.service.ICommonService;
 import com.smu.stock.service.ITableConfigService;
@@ -8,6 +10,7 @@ import com.smu.stock.utils.redis.RedisUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
+import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -28,6 +31,27 @@ public class CommonServiceImpl implements ICommonService {
 
 	@Autowired
 	ITableConfigService tableConfigService;
+
+	@Override
+	public List<PageData> pageCommonInfo(PageData pageData) {
+		int pageNo = 0;
+		int pageSize = 10;
+		if(pageData.containsKey("pageNo") && !StringUtils.isEmpty(pageData.get("pageNo").toString().trim())){
+			pageNo = Integer.parseInt(pageData.get("pageNo").toString());
+		}
+		if(pageData.containsKey("pageSize") && !StringUtils.isEmpty(pageData.get("pageSize").toString().trim())){
+			pageSize = Integer.parseInt(pageData.get("pageSize").toString());
+		}
+		try {
+			pageData.put("operateType","list");
+			pageData = constructorOperatePageData(pageData);
+			PageHelper.startPage(pageNo,pageSize);
+			return (List<PageData>)daoSupport.findForList("CommonMapper.listCommonInfo", pageData);
+		}catch (Exception e) {
+			e.printStackTrace();;
+		}
+		return new ArrayList<>();
+	}
 
 	@Override
 	public List<PageData> listCommonInfo(PageData pageData) {

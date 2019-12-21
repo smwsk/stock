@@ -1,12 +1,11 @@
 package com.smu.stock.controller;
 
 
-import com.smu.stock.entity.Page;
 import com.smu.stock.utils.PageData;
 import com.smu.stock.utils.UUIDUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.ModelAndView;
@@ -18,7 +17,6 @@ public class BaseController {
 	protected Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	private static final long serialVersionUID = 6357869213649815390L;
-
 
 	/**
 	 * 得到PageData
@@ -47,25 +45,6 @@ public class BaseController {
 	 * @return
 	 */
 	public String get32UUID(){
-		
 		return UUIDUtil.get32UUID();
-	}
-	
-	/**
-	 * 得到分页列表的信息 
-	 */
-	public Page getPage(){
-		return new Page();
-	}
-	
-	public static void logBefore(Logger logger, String interfaceName){
-		logger.info("");
-		logger.info("start");
-		logger.info(interfaceName);
-	}
-	
-	public static void logAfter(Logger logger){
-		logger.info("end");
-		logger.info("");
 	}
 }
