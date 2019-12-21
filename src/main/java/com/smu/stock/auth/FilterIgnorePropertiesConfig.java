@@ -1,4 +1,4 @@
-package com.smu.stock.config;
+package com.smu.stock.auth;
 
 import lombok.Data;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;

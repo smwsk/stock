@@ -1,9 +1,9 @@
-package com.smu.stock.service.impl;
+package com.smu.stock.auth.service;
 
 import com.smu.stock.entity.AuthUser;
 import com.smu.stock.entity.User;
-import com.smu.stock.service.IAuthService;
-import com.smu.stock.utils.JwtTokenUtil;
+import com.smu.stock.auth.service.IAuthService;
+import com.smu.stock.auth.JwtTokenUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;

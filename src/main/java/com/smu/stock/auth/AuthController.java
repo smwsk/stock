@@ -1,6 +1,7 @@
-package com.smu.stock.controller;
+package com.smu.stock.auth;
 
-import com.smu.stock.service.IAuthService;
+import com.smu.stock.controller.BaseController;
+import com.smu.stock.auth.service.IAuthService;
 import com.smu.stock.vo.LoginRequest;
 import com.smu.stock.vo.MiscUtil;
 import com.smu.stock.vo.Result;
@@ -16,7 +17,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/auth")
-public class AuthController extends BaseController{
+public class AuthController extends BaseController {
 
 	@Autowired
 	private IAuthService authService;

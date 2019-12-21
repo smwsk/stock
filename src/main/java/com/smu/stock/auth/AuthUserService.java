@@ -1,4 +1,4 @@
-package com.smu.stock.service.impl;
+package com.smu.stock.auth;
 
 import com.smu.stock.entity.AuthUser;
 import com.smu.stock.entity.User;

@@ -1,4 +1,4 @@
-package com.smu.stock.utils;
+package com.smu.stock.auth;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.smu.stock.entity.AuthUser;

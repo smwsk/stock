@@ -1,9 +1,8 @@
 package com.smu.stock.filter;
 
-import com.smu.stock.config.FilterIgnorePropertiesConfig;
+import com.smu.stock.auth.FilterIgnorePropertiesConfig;
 import com.smu.stock.entity.AuthUser;
-import com.smu.stock.utils.JwtTokenUtil;
-import com.smu.stock.utils.JwtUtil;
+import com.smu.stock.auth.JwtTokenUtil;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;

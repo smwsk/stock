@@ -1,4 +1,4 @@
-package com.smu.stock.config;
+package com.smu.stock.auth;
 
 import com.smu.stock.exception.JwtAuthError;
 import com.smu.stock.filter.JwtAuthFilter;
